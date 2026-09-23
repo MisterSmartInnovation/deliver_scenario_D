@@ -42,13 +42,28 @@
             min-height: 100%;
             overflow-x: hidden;
             overflow-y: auto;
-            background: var(--surface);
+            background: #F0F4F7;
             color: var(--ink);
+            position: relative;
             font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image: url("assets/pattern_quad.webp");
+            background-repeat: repeat;
+            background-size: 800px auto;
+            background-position: 0 0;
+            opacity: 0.25;
+            pointer-events: none;
+            z-index: 0;
         }
 
         .screen {
             position: relative;
+            z-index: 1;
             display: flex;
             width: 100vw;
             max-width: 100vw;
@@ -307,7 +322,7 @@
             padding: clamp(16px, 2.2vw, 26px);
             border: 2px solid #c4d3e2;
             border-radius: 16px;
-            background: transparent;
+            background: #F0F4F7;
             color: var(--ink);
             text-align: left;
         }
@@ -377,6 +392,19 @@
 
         .result-info-screen .screen-nav {
             justify-content: flex-start;
+        }
+
+        .qr-note {
+            width: min(100%, 40rem);
+            margin-top: clamp(16px, 2.5vh, 24px);
+            padding: 12px 16px;
+            border: 1px solid #c4d3e2;
+            border-radius: 10px;
+            background: #F0F4F7;
+            color: var(--ink);
+            font-family: "Open Sans", Arial, Helvetica, sans-serif;
+            font-size: clamp(13px, 1.35vw, 17px);
+            line-height: 1.35;
         }
 
         .screen[hidden] {
@@ -465,7 +493,7 @@
           </span>
         </div>
         <div class="text-block">
-            <h1 id="scenario-title">Situazione iniziale SCENARIO D</h1>
+            <h1 id="scenario-title">Situazione iniziale<br>SCENARIO D</h1>
             <p class="subtitle">
                 Osserva la situazione di partenza prima di prendere la tua decisione
             </p>
@@ -480,7 +508,7 @@
 <main id="screen-two" class="screen screen-two" aria-labelledby="video-title" hidden>
     <section class="content">
         <div class="text-block">
-            <h1 id="video-title">Situazione ipotetica SCENARIO D</h1>
+            <h1 id="video-title">Situazione ipotetica<br>SCENARIO D</h1>
             <p class="subtitle">
                 C'è stato un evento all'interporto e tutti i dipendenti escono dall'area per andare verso l'autostrada nello stesso momento. Di conseguenza si è creato un ingorgo al varco Sud. L'uscita alternativa, il varco Nord, è rimasta libera perché è più lontana dall'imbocco dell'autostrada. 
             </p>
@@ -557,21 +585,21 @@
     </section>
 </main>
 
-<main id="result-video" class="screen result-screen result-video-screen" aria-label="Video esito" hidden>
+<main id="result-one-video" class="screen result-screen result-video-screen" aria-label="Video risposta 1" hidden>
     <section class="content">
         <div class="video-frame">
-            <video id="answer-video" autoplay loop muted playsinline preload="metadata">
+            <video id="answer-video-one" autoplay loop muted playsinline preload="metadata">
                 <source src="assets/004-B+C_EXPORT.mp4" type="video/mp4" />
             </video>
             <div class="video-progress" aria-hidden="true"><span></span></div>
         </div>
         <p class="subtitle">(si consiglia una visione orizzontale)</p>
         <nav class="screen-nav" aria-label="Navigazione schermate">
-            <button id="back-to-question" class="next back" type="button">
+            <button id="back-to-question-one" class="next back" type="button">
                 <span class="arrow" aria-hidden="true">arrow_back</span>
                 <span>INDIETRO</span>
             </button>
-            <button id="show-result-info" class="next" type="button">
+            <button id="show-result-one-info" class="next" type="button">
                 <span>AVANTI</span>
                 <span class="arrow" aria-hidden="true">arrow_forward</span>
             </button>
@@ -579,7 +607,7 @@
     </section>
 </main>
 
-<main id="result-info" class="screen result-screen result-info-screen" aria-labelledby="result-title" hidden>
+<main id="result-one-info" class="screen result-screen result-info-screen" aria-labelledby="result-one-title" hidden>
     <header class="topbar">
         <img class="logo-mister" src="assets/Logo Mister_C.png" alt="Mister" />
         <img class="logo-deliver" src="assets/deliver-logo.png" alt="DeLIVER" />
@@ -588,22 +616,62 @@
         <div class="scenario" aria-hidden="true">
             <span>SCENARIO 1/4</span>
             <span class="dots">
-            <span class="dot active"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-          </span>
+                <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </span>
         </div>
         <div class="text-block">
-            <h1 id="result-title">Risposta migliore/peggiore</h1>
-            <p class="subtitle">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            </p>
+            <h1 id="result-one-title">Risposta migliore/peggiore</h1>
+            <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="qr-note">apri la fotocamera e inquadra il prossimo QR code</div>
         </div>
         <nav class="screen-nav" aria-label="Navigazione schermate">
-            <button id="back-to-result-video" class="next back" type="button">
-                <span class="arrow" aria-hidden="true">arrow_back</span>
-                <span>INDIETRO</span>
+            <button id="back-to-result-one-video" class="next back" type="button">
+                <span class="arrow" aria-hidden="true">arrow_back</span><span>INDIETRO</span>
+            </button>
+        </nav>
+    </section>
+</main>
+
+<main id="result-two-video" class="screen result-screen result-video-screen" aria-label="Video risposta 2" hidden>
+    <section class="content">
+        <div class="video-frame">
+            <video id="answer-video-two" autoplay loop muted playsinline preload="metadata">
+                <source src="assets/004-B+C_EXPORT.mp4" type="video/mp4" />
+            </video>
+            <div class="video-progress" aria-hidden="true"><span></span></div>
+        </div>
+        <p class="subtitle">(si consiglia una visione orizzontale)</p>
+        <nav class="screen-nav" aria-label="Navigazione schermate">
+            <button id="back-to-question-two" class="next back" type="button">
+                <span class="arrow" aria-hidden="true">arrow_back</span><span>INDIETRO</span>
+            </button>
+            <button id="show-result-two-info" class="next" type="button">
+                <span>AVANTI</span><span class="arrow" aria-hidden="true">arrow_forward</span>
+            </button>
+        </nav>
+    </section>
+</main>
+
+<main id="result-two-info" class="screen result-screen result-info-screen" aria-labelledby="result-two-title" hidden>
+    <header class="topbar">
+        <img class="logo-mister" src="assets/Logo Mister_C.png" alt="Mister" />
+        <img class="logo-deliver" src="assets/deliver-logo.png" alt="DeLIVER" />
+    </header>
+    <section class="content">
+        <div class="scenario" aria-hidden="true">
+            <span>SCENARIO 1/4</span>
+            <span class="dots">
+                <span class="dot active"></span><span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </span>
+        </div>
+        <div class="text-block">
+            <h1 id="result-two-title">Risposta migliore/peggiore</h1>
+            <p class="subtitle">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <div class="qr-note">apri la fotocamera e inquadra il prossimo QR code</div>
+        </div>
+        <nav class="screen-nav" aria-label="Navigazione schermate">
+            <button id="back-to-result-two-video" class="next back" type="button">
+                <span class="arrow" aria-hidden="true">arrow_back</span><span>INDIETRO</span>
             </button>
         </nav>
     </section>
@@ -613,18 +681,14 @@
     const screenOne = document.getElementById("screen-one");
     const screenTwo = document.getElementById("screen-two");
     const screenFour = document.getElementById("screen-four");
-    const resultVideo = document.getElementById("result-video");
-    const resultInfo = document.getElementById("result-info");
+    const resultOneVideo = document.getElementById("result-one-video");
+    const resultOneInfo = document.getElementById("result-one-info");
+    const resultTwoVideo = document.getElementById("result-two-video");
+    const resultTwoInfo = document.getElementById("result-two-info");
     const trafficVideo = document.getElementById("traffic-video");
     const progressBar = document.getElementById("video-progress-bar");
     const videoFallback = document.getElementById("video-fallback");
-    const screens = [
-        screenOne,
-        screenTwo,
-        screenFour,
-        resultVideo,
-        resultInfo,
-    ];
+    const screens = [screenOne, screenTwo, screenFour, resultOneVideo, resultOneInfo, resultTwoVideo, resultTwoInfo];
     const videoBindings = [
         { video: trafficVideo, progress: progressBar, fallback: videoFallback },
         ...Array.from(document.querySelectorAll(".result-screen video")).map((video) => ({
@@ -643,16 +707,12 @@
             screen.classList.toggle("is-visible", isActive);
         });
         allVideos.forEach((video) => {
-            if (video !== trafficVideo || activeScreen !== screenTwo) {
-                video.pause();
-            }
+            if (video !== trafficVideo || activeScreen !== screenTwo) video.pause();
         });
     }
 
     function startVideo() {
-        trafficVideo.play().catch(() => {
-            videoFallback.hidden = false;
-        });
+        trafficVideo.play().catch(() => { videoFallback.hidden = false; });
     }
 
     function startResultVideo(resultScreen) {
@@ -665,83 +725,46 @@
 
     function bindVideo({ video, progress, fallback }) {
         let previousTime = 0;
-
-        video.addEventListener("loadedmetadata", () => {
-            if (fallback) fallback.hidden = true;
-        });
-
-        video.addEventListener("error", () => {
-            if (fallback) fallback.hidden = false;
-            progress.style.width = "0";
-        });
-
+        video.addEventListener("loadedmetadata", () => { if (fallback) fallback.hidden = true; });
+        video.addEventListener("error", () => { if (fallback) fallback.hidden = false; progress.style.width = "0"; });
         video.addEventListener("timeupdate", () => {
             const duration = video.duration;
-            if (previousTime > 0 && video.currentTime < previousTime) {
-                progress.style.width = "0";
-            } else if (Number.isFinite(duration) && duration > 0) {
-                progress.style.width = `${(video.currentTime / duration) * 100}%`;
-            }
+            if (previousTime > 0 && video.currentTime < previousTime) progress.style.width = "0";
+            else if (Number.isFinite(duration) && duration > 0) progress.style.width = `${(video.currentTime / duration) * 100}%`;
             previousTime = video.currentTime;
         });
-
-        video.addEventListener("ended", () => {
-            previousTime = 0;
-            progress.style.width = "0";
-        });
+        video.addEventListener("ended", () => { previousTime = 0; progress.style.width = "0"; });
     }
 
     videoBindings.forEach(bindVideo);
-
     setActiveScreen(screenOne);
 
-    document.getElementById("show-screen-two").addEventListener("click", () => {
-        setActiveScreen(screenTwo);
-        startVideo();
-    });
-
-    document.getElementById("back-to-one").addEventListener("click", () => {
-        setActiveScreen(screenOne);
-    });
-
-    document.getElementById("show-screen-four").addEventListener("click", () => {
-        setActiveScreen(screenFour);
-    });
-
-    document.getElementById("back-to-two").addEventListener("click", () => {
-        setActiveScreen(screenTwo);
-        startVideo();
-    });
+    document.getElementById("show-screen-two").addEventListener("click", () => { setActiveScreen(screenTwo); startVideo(); });
+    document.getElementById("back-to-one").addEventListener("click", () => setActiveScreen(screenOne));
+    document.getElementById("show-screen-four").addEventListener("click", () => setActiveScreen(screenFour));
+    document.getElementById("back-to-two").addEventListener("click", () => { setActiveScreen(screenTwo); startVideo(); });
 
     document.querySelectorAll(".answer").forEach((answer) => {
         answer.addEventListener("click", () => {
             selectedAnswer = answer.dataset.answer;
-            document.querySelectorAll(".answer").forEach((option) => {
-                option.setAttribute("aria-checked", String(option === answer));
-            });
+            document.querySelectorAll(".answer").forEach((option) => option.setAttribute("aria-checked", String(option === answer)));
             document.getElementById("show-result").disabled = false;
         });
     });
 
     document.getElementById("show-result").addEventListener("click", () => {
         if (!selectedAnswer) return;
-        setActiveScreen(resultVideo);
-        startResultVideo(resultVideo);
+        const resultScreen = selectedAnswer === "one" ? resultOneVideo : resultTwoVideo;
+        setActiveScreen(resultScreen);
+        startResultVideo(resultScreen);
     });
 
-    document.getElementById("show-result-info").addEventListener("click", () => {
-        setActiveScreen(resultInfo);
-    });
-
-    document.getElementById("back-to-question").addEventListener("click", () => {
-        setActiveScreen(screenFour);
-    });
-
-    document.getElementById("back-to-result-video").addEventListener("click", () => {
-        setActiveScreen(resultVideo);
-        startResultVideo(resultVideo);
-    });
-
+    document.getElementById("show-result-one-info").addEventListener("click", () => setActiveScreen(resultOneInfo));
+    document.getElementById("show-result-two-info").addEventListener("click", () => setActiveScreen(resultTwoInfo));
+    document.getElementById("back-to-question-one").addEventListener("click", () => setActiveScreen(screenFour));
+    document.getElementById("back-to-question-two").addEventListener("click", () => setActiveScreen(screenFour));
+    document.getElementById("back-to-result-one-video").addEventListener("click", () => { setActiveScreen(resultOneVideo); startResultVideo(resultOneVideo); });
+    document.getElementById("back-to-result-two-video").addEventListener("click", () => { setActiveScreen(resultTwoVideo); startResultVideo(resultTwoVideo); });
 </script>
 </body>
 </html>

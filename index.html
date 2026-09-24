@@ -411,6 +411,40 @@
             display: none !important;
         }
 
+
+        /* BARRA DI AVANZAMENTO */
+        .progress-steps {
+            display: flex;
+            align-items: center;
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto 30px;
+            padding: 0 10px;
+        }
+
+        .progress-step {
+            position: relative;
+            width: 14px;
+            height: 14px;
+            flex-shrink: 0;
+            border-radius: 50%;
+            background: #c4d3e2;
+        }
+
+        .progress-line {
+            height: 3px;
+            flex: 1;
+            background: #c4d3e2;
+        }
+
+        .progress-step.active {
+            background: #ED6A5E;
+        }
+
+        .progress-line.active {
+            background: #ED6A5E;
+        }
+
         @media (max-width: 560px) {
             body {
                 overflow-y: auto;
@@ -477,6 +511,18 @@
 </head>
 <body>
 <main id="screen-one" class="screen">
+    <div class="progress-steps">
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+    </div>
+
     <header class="topbar">
         <img class="logo-mister" src="assets/Logo Mister_C.png" alt="Mister" />
         <img class="logo-deliver" src="assets/deliver-logo.png" alt="DeLIVER" />
@@ -506,6 +552,18 @@
 </main>
 
 <main id="screen-two" class="screen screen-two" aria-labelledby="video-title" hidden>
+    <div class="progress-steps">
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+    </div>
+
     <section class="content">
         <div class="text-block">
             <h1 id="video-title">Situazione ipotetica<br>SCENARIO D</h1>
@@ -547,6 +605,18 @@
 </main>
 
 <main id="screen-four" class="screen screen-four" aria-labelledby="question-title" hidden>
+    <div class="progress-steps">
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+    </div>
+
     <section class="content">
         <div class="text-block">
             <h1 id="question-title">
@@ -586,6 +656,18 @@
 </main>
 
 <main id="result-one-video" class="screen result-screen result-video-screen" aria-label="Video risposta 1" hidden>
+    <div class="progress-steps">
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+    </div>
+
     <section class="content">
         <div class="video-frame">
             <video id="answer-video-one" autoplay loop muted playsinline preload="metadata">
@@ -608,6 +690,18 @@
 </main>
 
 <main id="result-one-info" class="screen result-screen result-info-screen" aria-labelledby="result-one-title" hidden>
+    <div class="progress-steps">
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+    </div>
+
     <header class="topbar">
         <img class="logo-mister" src="assets/Logo Mister_C.png" alt="Mister" />
         <img class="logo-deliver" src="assets/deliver-logo.png" alt="DeLIVER" />
@@ -633,6 +727,18 @@
 </main>
 
 <main id="result-two-video" class="screen result-screen result-video-screen" aria-label="Video risposta 2" hidden>
+    <div class="progress-steps">
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+    </div>
+
     <section class="content">
         <div class="video-frame">
             <video id="answer-video-two" autoplay loop muted playsinline preload="metadata">
@@ -653,6 +759,18 @@
 </main>
 
 <main id="result-two-info" class="screen result-screen result-info-screen" aria-labelledby="result-two-title" hidden>
+    <div class="progress-steps">
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+        <span class="progress-line"></span>
+        <span class="progress-step"></span>
+    </div>
+
     <header class="topbar">
         <img class="logo-mister" src="assets/Logo Mister_C.png" alt="Mister" />
         <img class="logo-deliver" src="assets/deliver-logo.png" alt="DeLIVER" />
@@ -700,6 +818,34 @@
     const allVideos = videoBindings.map(({ video }) => video);
     let selectedAnswer = null;
 
+
+    function updateProgress(screen) {
+        let currentStep = 1;
+
+        if (screen === screenOne) {
+            currentStep = 1;
+        } else if (screen === screenTwo) {
+            currentStep = 2;
+        } else if (screen === screenFour) {
+            currentStep = 3;
+        } else if (screen === resultOneVideo || screen === resultTwoVideo) {
+            currentStep = 4;
+        } else if (screen === resultOneInfo || screen === resultTwoInfo) {
+            currentStep = 5;
+        }
+
+        const steps = screen.querySelectorAll(".progress-step");
+        const lines = screen.querySelectorAll(".progress-line");
+
+        steps.forEach((step, index) => {
+            step.classList.toggle("active", index < currentStep);
+        });
+
+        lines.forEach((line, index) => {
+            line.classList.toggle("active", index < currentStep - 1);
+        });
+    }
+
     function setActiveScreen(activeScreen) {
         screens.forEach((screen) => {
             const isActive = screen === activeScreen;
@@ -709,6 +855,8 @@
         allVideos.forEach((video) => {
             if (video !== trafficVideo || activeScreen !== screenTwo) video.pause();
         });
+
+        updateProgress(activeScreen);
     }
 
     function startVideo() {

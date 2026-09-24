@@ -190,6 +190,18 @@
             white-space: nowrap;
         }
 
+        .next {
+  box-shadow: 0 4px 10px rgba(14, 45, 84, 0.22);
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+.next:active {
+  transform: translateY(2px);
+  box-shadow: 0 1px 4px rgba(14, 45, 84, 0.28);
+}
+
         .next .arrow {
             font-family: "Material Symbols Outlined";
             font-size: 20px;

@@ -413,37 +413,41 @@
 
 
         /* BARRA DI AVANZAMENTO */
-        .progress-steps {
-            display: flex;
-            align-items: center;
-            width: 100%;
-            max-width: 600px;
-            margin: 20px auto 30px;
-            padding: 0 10px;
-        }
+.progress-steps {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto 30px;
+    padding: 0 10px;
+}
 
-        .progress-step {
-            position: relative;
-            width: 14px;
-            height: 14px;
-            flex-shrink: 0;
-            border-radius: 50%;
-            background: #c4d3e2;
-        }
+.progress-step {
+    position: relative;
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #F0F4F7;
+    border: 2px solid #ED6A5E;
+}
 
-        .progress-line {
-            height: 3px;
-            flex: 1;
-            background: #c4d3e2;
-        }
+.progress-line {
+    height: 3px;
+    flex: 1;
+    background: transparent;
+    border-top: 2px solid #ED6A5E;
+}
 
-        .progress-step.active {
-            background: #ED6A5E;
-        }
+.progress-step.active {
+    background: #ED6A5E;
+    border-color: #ED6A5E;
+}
 
-        .progress-line.active {
-            background: #ED6A5E;
-        }
+.progress-line.active {
+    background: #ED6A5E;
+    border-top-color: #ED6A5E;
+}
 
         @media (max-width: 560px) {
             body {
